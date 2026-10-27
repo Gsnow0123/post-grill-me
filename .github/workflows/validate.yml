@@ -1,0 +1,25 @@
+name: Package checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Validate package and public content
+        run: python3 scripts/validate.py
+      - name: Test publication checks
+        run: python3 -m unittest discover -s tests -v
+      - name: Build standalone language packages
+        run: python3 scripts/package.py --version 0.1.0
+      - name: Verify release contents
+        run: python3 scripts/validate.py --archives dist

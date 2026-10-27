@@ -1,0 +1,4 @@
+interface:
+  display_name: "Post Grill Me"
+  short_description: "Review agent assumptions in small rounds; keep a feature recap"
+  default_prompt: "Use $post-grill-me to show one or two consequential interpretations you inferred, let me correct them, and keep a reusable feature recap."

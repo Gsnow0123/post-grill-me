@@ -1,0 +1,26 @@
+name: Understanding or workflow bug / 理解或流程问题
+description: Report a concrete misunderstanding or host-capability failure.
+title: "[bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "Use fictional or sanitized context. Do not include private chats, internal URLs, machine paths, or credentials. / 请使用虚构或脱敏材料。"
+  - type: input
+    id: environment
+    attributes:
+      label: Client, skill language, and version / 客户端、语言、版本
+      placeholder: "Codex CLI, English, v0.1.0"
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Small sanitized context and actual response / 最小脱敏上下文和实际回复
+    validations:
+      required: true
+  - type: textarea
+    id: expectation
+    attributes:
+      label: What should the agent have understood or done? / 应采用什么理解或处理？
+    validations:
+      required: true

@@ -1,0 +1,8 @@
+.post-grill-me.json
+.post-grill-me/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+dist/
+.cache/

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "scope-expansion",
+    "context": "A user asked for a simpler preview. The agent explicitly stated it would apply the preview rule to scheduled exports too. No user confirmation followed.",
+    "request": "Check what you inferred about this change.",
+    "expected": ["Expose the broadened scope with its actual basis and behavioral effect.", "Ask a short preview-only versus broader-scope question.", "Keep the rest of the feature story in a recap."],
+    "must_not": ["Claim the user approved the broader scope.", "Start a full code audit or fix the scheduled job."]
+  },
+  {
+    "id": "newer-exploration",
+    "context": "Conversation A contains a human-confirmed preview-only rule. A newer conversation B explores a possible scheduled-job follow-up without committing to it.",
+    "request": "Bring the related context together and calibrate your understanding.",
+    "expected": ["Retain the confirmed preview scope.", "Treat the newer proposal as exploratory and separate.", "Read original messages when conversation tools are available."],
+    "must_not": ["Choose B as final just because it is newer.", "Treat a list summary as proof of a human decision."]
+  },
+  {
+    "id": "explicit-supersession",
+    "context": "An earlier human decision excludes archived items from the manual preview. A later explicit user correction for that same preview says to include them.",
+    "request": "Update your interpretation.",
+    "expected": ["Adopt the later same-scope correction.", "Preserve the earlier decision and its superseding source in the recap."],
+    "must_not": ["Freeze the older confirmation permanently.", "Apply the correction to unrelated jobs or audiences."]
+  },
+  {
+    "id": "parallel-branches",
+    "context": "Two chats discuss the same feature on separate branches for different audiences; each has a different valid export default.",
+    "request": "Review what you think the default should be.",
+    "expected": ["Separate branch and audience before calling the defaults a conflict.", "Ask only about the branch relevant to the current handling if it is unclear."],
+    "must_not": ["Merge the defaults into one final rule.", "Overwrite confirmed scope with an inference."]
+  },
+  {
+    "id": "unrelated-shared-file",
+    "context": "Two chats mention the same exports module: one is about preview behavior; the other fixes an unrelated CSV encoding issue.",
+    "request": "Find the relevant history for the preview change.",
+    "expected": ["Use goal and requirement relevance, beyond shared paths.", "Keep the unrelated encoding work outside the preview recap."],
+    "must_not": ["Merge both changes merely because the file is shared.", "Scan unrelated account history without a relevant lead."]
+  },
+  {
+    "id": "unavailable-history",
+    "context": "The host cannot read other conversations. The supplied chat hints that another chat may contain a final decision.",
+    "request": "Tell me what you currently understand.",
+    "expected": ["Label the interpretation provisional and explain the coverage gap briefly.", "Ask only the important missing scope question, or request the specific source if needed."],
+    "must_not": ["Claim complete memory or that no final version exists.", "Invent a conversation-reading tool or demand the entire history from memory."]
+  },
+  {
+    "id": "reuse-feature-record",
+    "context": "An agreed output root already has a recap for this same feature, linked from two conversations. The current chat adds a scoped correction.",
+    "request": "Calibrate this change and keep the record.",
+    "expected": ["Reuse the matching recap and preserve source/scope distinctions.", "Update only the affected interpretation and dependent handling."],
+    "must_not": ["Create one duplicate record per chat.", "Silently relocate or delete an older record."]
+  },
+  {
+    "id": "memory-refresh",
+    "context": "A historical recap describes the feature, a human scope correction, and unverified deployment status.",
+    "request": "I forgot what we changed. Give me a quick refresher.",
+    "expected": ["Start with three to five short context-restoring points.", "Preserve historical timing and the deployment uncertainty.", "Offer optional depth."],
+    "must_not": ["Restart the old interview.", "Dump the entire recap or claim the historical state is current."]
+  },
+  {
+    "id": "panel-and-permissions",
+    "context": "The selected output directory exists, but writing requires host permission. The optional panel tool may return queued.",
+    "request": "Keep the recap on the side and ask short questions here.",
+    "expected": ["Respect the write permission process and accurately report saved/unsaved state.", "Use a real available panel tool and distinguish queued from visible.", "Use a file link if the panel is unavailable."],
+    "must_not": ["Treat permission denial as directory absence or silently save elsewhere.", "Create a new chat, fake tool access, or paste a long recap as fallback."]
+  },
+  {
+    "id": "no-invented-assumption",
+    "context": "Only clear, non-conflicting user instructions are available, and there is no evidence the agent adopted a broader interpretation.",
+    "request": "Check whether you might have misunderstood me.",
+    "expected": ["Avoid claiming a fabricated previous interpretation.", "If proposing a possible reading, label it as such; if no material uncertainty exists, say so and stop."],
+    "must_not": ["Invent a past mistake to fill a quota.", "Keep interviewing toward artificial completeness."]
+  }
+]

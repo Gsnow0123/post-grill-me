@@ -1,0 +1,16 @@
+name: Workflow improvement / 流程改进
+description: Suggest a small change that improves calibration or recall.
+title: "[idea] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Which concrete understanding problem does this solve? / 解决什么具体理解问题？
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior and a fictional example / 建议行为和虚构示例
+    validations:
+      required: true
